@@ -29,4 +29,16 @@ sudo gem install cocoapods
 npm install -g yarn react-native-cli
 ```
 
-### 2、运行项目
+### 2、初始化项目
+
+#### （1）初始化
+
+```
+react-native init MyFirstApp
+```
+#### (2)运行
+
+```
+cd MyFirstApp
+react-native run-ios
+```
