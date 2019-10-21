@@ -16,7 +16,8 @@ import {
   StatusBar,
   TextInput,
   Button,
-  Alert
+  Alert,
+  FlatList
 } from 'react-native';
 
 import {
@@ -55,9 +56,27 @@ const App: () => React$Node = () => {
               value={value}
             />
           </View>
-          <Button onPress={() => {
-            Alert.alert('你点击了按钮！')
-          }} title='点击一下'></Button>
+          <View style={styles.sectionContainer}>
+            <Button onPress={() => {
+              Alert.alert('你点击了按钮！')
+            }} title='点击一下'></Button>
+          </View>
+          <View style={styles.container}>
+            <FlatList 
+            data={[
+              {key: 'Devin'},
+              {key: 'Dan'},
+              {key: 'Dominic'},
+              {key: 'Jackson'},
+              {key: 'James'},
+              {key: 'Joel'},
+              {key: 'John'},
+              {key: 'Jillian'},
+              {key: 'Jimmy'},
+              {key: 'Julie'},
+            ]}
+            renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}></FlatList>
+          </View>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>First One</Text>
@@ -135,7 +154,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     padding: 20,
     color: 'red'
-  }
+  },
+  container: {
+    flex: 1,
+    paddingTop: 22
+   },
+   item: {
+     padding: 10,
+     fontSize: 18,
+     height: 44,
+   },
 });
 
 export default App;
