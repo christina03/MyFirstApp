@@ -14,10 +14,12 @@ import {
   View,
   Text,
   StatusBar,
+  TextInput,
+  Button,
+  Alert
 } from 'react-native';
 
 import {
-  Header,
   LearnMoreLinks,
   Colors,
   DebugInstructions,
@@ -25,6 +27,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 const App: () => React$Node = () => {
+  const [value, onChangeText] = React.useState('Useless Placeholder');
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -33,6 +36,28 @@ const App: () => React$Node = () => {
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
           <Text style={styles.title}>Hello, my first react native project!</Text>
+          <View style={{ flexDirection: 'row'}}>
+            <View style={{flex: 1, height: 50, backgroundColor: 'powderblue'}} >
+              <Text>TAB ONE</Text>
+            </View>
+            <View style={{flex: 1, height: 50, backgroundColor: 'skyblue'}} >
+              <Text>TAB two</Text>
+            </View>
+            <View style={{flex: 1, height: 50, backgroundColor: 'steelblue'}} >
+              <Text>TAB THREE</Text>
+            </View>
+          </View>
+          <View style={{padding: 10}}>
+            <TextInput
+              style={{height: 40}}
+              placeholder="Type here to translate!"
+              onChangeText={(text) => onChangeText(text)({text})}
+              value={value}
+            />
+          </View>
+          <Button onPress={() => {
+            Alert.alert('你点击了按钮！')
+          }} title='点击一下'></Button>
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>First One</Text>
